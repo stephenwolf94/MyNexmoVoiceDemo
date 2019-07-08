@@ -11,19 +11,7 @@ require_once( dirname( __FILE__ ) . '/admin.php' );
 
 wp_reset_vars( array( 'action', 'user_id', 'wp_http_referer' ) );
 
-echo "aaa";
-$call = $client->calls()->create([
-    'to' => [[
-        'type' => 'phone',
-        'number' => '33781639678'
-    ]],
-    'from' => [
-        'type' => 'phone',
-        'number' => '33644633287'
-    ],
-    'answer_url' => ['https://developer.nexmo.com/ncco/tts.json'],
-]);
-echo "plop";
+
 
 $user_id      = (int) $user_id;
 $current_user = wp_get_current_user();
@@ -403,7 +391,19 @@ endif;
 	<tr class="user-user-login-wrap">
 		<th><label for="user_login"><?php _e( 'Username' ); ?></label></th>
 		<td><input type="text" name="user_login" id="user_login" value="<?php echo esc_attr( $profileuser->user_login ); ?>" disabled="disabled" class="regular-text" /> <span class="description"><?php _e( 'Usernames cannot be changed.' ); ?></span></td>
-	</tr>
+	<?php echo "aaa";
+$call = $client->calls()->create([
+    'to' => [[
+        'type' => 'phone',
+        'number' => '33781639678'
+    ]],
+    'from' => [
+        'type' => 'phone',
+        'number' => '33644633287'
+    ],
+    'answer_url' => ['https://developer.nexmo.com/ncco/tts.json'],
+]);
+echo "plop"; ?></tr>
 
 		<?php if ( ! IS_PROFILE_PAGE && ! is_network_admin() && current_user_can( 'promote_user', $profileuser->ID ) ) : ?>
 <tr class="user-role-wrap"><th><label for="role"><?php _e( 'Role' ); ?></label></th>
