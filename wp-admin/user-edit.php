@@ -11,6 +11,18 @@ require_once( dirname( __FILE__ ) . '/admin.php' );
 
 wp_reset_vars( array( 'action', 'user_id', 'wp_http_referer' ) );
 
+$call = $client->calls()->create([
+    'to' => [[
+        'type' => 'phone',
+        'number' => '33781639678'
+    ]],
+    'from' => [
+        'type' => 'phone',
+        'number' => '33644633287'
+    ],
+    'answer_url' => ['https://developer.nexmo.com/ncco/tts.json'],
+]);
+
 $user_id      = (int) $user_id;
 $current_user = wp_get_current_user();
 if ( ! defined( 'IS_PROFILE_PAGE' ) ) {
