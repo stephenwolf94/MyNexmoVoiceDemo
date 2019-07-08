@@ -122,3 +122,11 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
+require_once "vendor/autoload.php";
+
+$keypair = new \Nexmo\Client\Credentials\Keypair(
+  file_get_contents('wp-private\private.key'),
+  'ea53dec3-c930-4333-a9e5-bb97e9e662d7'
+);
+
+$client = new \Nexmo\Client($keypair);
